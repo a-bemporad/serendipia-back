@@ -14,8 +14,8 @@ export class UserController {
   }
 
   public async logIn(req: Request, res: Response) {
-    const { email, password } = req.body;
-    const result = await userBusiness.logIn(email, password);
+    const { emailOrNickname, password } = req.body;
+    const result = await userBusiness.logIn(emailOrNickname, password);
     res.status(200).send(result);
     try {
     } catch (error) {

@@ -23,28 +23,17 @@ export class UserDataBase extends BaseDataBase {
       throw new Error(error.sqlMessage || error.message);
     }
   }
-  public async verifyEmail(reqEmail: string): Promise<boolean> {
-    try {
-      const result = await BaseDataBase.connection(this.tableName)
-        .select("email")
-        .where({ email: reqEmail });
-      if (result.length > 0) {
-        return false;
-        //email doesn't exist on db, so can be used for sign up, not for log in
-      } else {
-        return true;
-        //email does exist on db, so can't be used for sing up, can for log in
-      }
-    } catch (error) {
-      throw new Error(error.sqlMessage || error.message);
-    }
-  }
-  public async getUserByEmail(reqEmail: string): Promise<User | undefined> {
+  public async getUserByEmailOrNickname(
+    reqEmail?: string,
+    reqNickname?: string
+  ): Promise<User | undefined> {
     try {
       const result = await BaseDataBase.connection
         .select("*")
         .from(this.tableName)
-        .where({ email: reqEmail });
+        .where({ email: reqEmail })
+        .orWhere({ nickname: reqNickname });
+
       const user = this.toModel(result);
       return user;
     } catch (error) {
