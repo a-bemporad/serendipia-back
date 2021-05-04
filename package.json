@@ -2,15 +2,25 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Running tests...\" && jest",
+    "start": "tsc && node --inspect ./build/src/index.js",
+    "dev": " ts-node-dev ./src/index.ts"
+  },
   "repository": "https://github.com/a-bemporad/gallery-back.git",
   "author": "astrid <astridbemporad@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "global": "^4.4.0",
+    "jsonwebtoken": "^8.5.1",
     "knex": "^0.95.4",
-    "mysql": "^2.18.1"
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
