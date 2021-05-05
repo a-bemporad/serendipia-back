@@ -29,11 +29,12 @@ export class UserBusiness {
       }
 
       const userData = await this.userDataBase.getUserByEmail(email);
-      console.log(userData);
-      if (!userData) {
+      //userData tem os dados que vem de procurar no banco pelo email indicado. se o email já existe,
+      //userData vai conter alguma coisa, então throw error
+
+      if (userData) {
         throw new Error("Email already used");
       }
-      console.log(userData);
 
       const id = this.idGenerator.generate();
       const cypherPassword = await this.hashManager.hashGenerator(password);

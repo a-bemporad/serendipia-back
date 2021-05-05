@@ -2,7 +2,7 @@ import { User } from "../model/user";
 import BaseDataBase from "./BaseDataBase";
 
 export class UserDataBase extends BaseDataBase {
-  protected tableName: string = "gallery_user";
+  protected tableName: string = "serendipia_user";
 
   private toModel(dbModel?: any): User | undefined {
     return (

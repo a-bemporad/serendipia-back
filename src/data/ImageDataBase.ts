@@ -2,7 +2,7 @@ import { Image } from "../model/image";
 import BaseDataBase from "./BaseDataBase";
 
 export class ImageDataBase extends BaseDataBase {
-  protected tableName: string = "gallery_image";
+  protected tableName: string = "serendipia_image";
 
   private toModel(dbModel?: any): Image | undefined {
     return (
