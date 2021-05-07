@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Running tests...\" && jest",
-    "start": "tsc && node --inspect ./build/src/index.js",
+    "start": "tsc && node --inspect ./build/index.js",
     "dev": " ts-node-dev ./src/index.ts"
   },
   "repository": "https://github.com/a-bemporad/gallery-back.git",
